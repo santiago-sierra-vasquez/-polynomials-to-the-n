@@ -4,6 +4,9 @@ import sys
 sys.setrecursionlimit(10000)
 
 
+# Esta lista es importante ya que con el numero de "cantidad de letras" que nos da el usuario sabremos con las letras que trabajaremos
+
+
 lista_de_cantiadad_de_letras = {
     1 : "a",
     2 : ["a", "b"],
@@ -17,33 +20,9 @@ lista_de_cantiadad_de_letras = {
     10 : ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"]
 }
 
-letra_a_numero = {
-    "a" : 1,
-    "b" : 2,
-    "c" : 3,
-    "d" : 4,
-    "e" : 5,
-    "f" : 6,
-    "g" : 7,
-    "h" : 8,
-    "i" : 9,
-    "j" : 10
-}
-
-numero_a_letra = {
-    1 : "a",
-    2 : "b",
-    3 : "c",
-    4 : "d",
-    5 : "e",
-    6 : "f",
-    7 : "g",
-    8 : "h",
-    9 : "i",
-    10 : "j"
-}
 
 
+# Esta funcion le pide los datos al usuario y devuelve 3 datos importantes
 
 def setup():
     cantidad_de_letras = int(input("¿Cantidad de letras? "))
@@ -56,26 +35,11 @@ def setup():
     if input(f"({numero})^{exponente}?, Y/N ").lower() == "n":
         setup()
     else:
-        exponente_total = exponente
         return[exponente, letras, cantidad_de_letras]
 
 
-# Declaro todas la variables
-
-output = setup()
-exponente = output[0]
-letras = output[1]
-posicion = exponente - 1
-cantidad_de_letras = output[2]
-last_letter = letras[len(letras) - 1]
-the_print = []
-for letter in range(0, exponente):
-    the_print.append("a")
-
-
-# Realizo la combinatoria
-
-
+# Esta funcion usando el exponente y las letras, hace la combianatoria de esta, pero me lo entrega en una lista que dentro tiene tuplas
+# Asi que con un for loop saco los valores de las tuplas
 
 
 def convert():
@@ -91,11 +55,9 @@ def convert():
     return the_new_print
 
 
-the_print = convert()
-
-
-# luego empiezo a simplificar
-# Estas lineas decodigo detectar si hay multiples letras en cada posicion de la lista y las simplifica
+#  Con esta funcion el rpograma detecta si dentro de un elemento de la lista hay letras repetidas, si las hay las simplifica a una potenciacion
+# Este programa es muy utili por que en cierta manera organiza la lista, es decir primera pone las a luego las b y asi, es decir la lista queda
+# Organizada para la siguiente fase
 
 
 def simplification(letras):
@@ -131,11 +93,8 @@ def simplification(letras):
     return simplicacion_n_1
 
 
+# Esta funcion detecta si hay elementos repetidos en la lista, y si los hay los simplifica con una multiplicacion
 
-the_print = simplification(letras)
-
-
-# Esta es la segunda fase de simplificacion en la cual se revisa si en la lista hay repetidos y si los hay simplificarlos para luego imprimit el resultado
 
 def find_repeat(the_list):
     repeated_numbers = []
@@ -155,9 +114,9 @@ def find_repeat(the_list):
     
     return the_list
 
-the_print = find_repeat(the_print)
 
-# Y por ultimo esta funcion organiza el resultado de la lista, para luego ser imprimido
+# Y por ultimo esta funcion convierte la lista, en un string mas leible para el usuario
+
 
 def organize():
     times = 1
@@ -171,6 +130,35 @@ def organize():
         times += 1
 
     return the_final_result
+
+
+# Invoco al "setup()" y declaro todas la variables que voy a usar
+
+output = setup()
+exponente = output[0]
+letras = output[1]
+posicion = exponente - 1
+cantidad_de_letras = output[2]
+last_letter = letras[len(letras) - 1]
+the_print = []
+for letter in range(0, exponente):
+    the_print.append("a")
+
+
+# Realizo la combinatoria
+
+the_print = convert()
+
+
+# luego empiezo a simplificar
+
+
+the_print = simplification(letras)
+
+the_print = find_repeat(the_print)
+
+
+# Y por ultimo esta funcion organiza el resultado de la lista, para luego ser imprimido
 
 the_print = organize()
 print(the_print)
