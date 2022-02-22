@@ -76,15 +76,15 @@ for letter in range(0, exponente):
 # Realizo la combinatoria
 
 
-list2 = []
-for number in range(0, exponente):
-    list2.append(letras)
-
-the_print = list((product(*list2)))
 
 
 def convert():
+    list2 = []
+    for number in range(0, exponente):
+        list2.append(letras)
+    the_print = list((product(*list2)))
     the_new_print = []
+
     for i in range(0, len(the_print)):
         the_new_print.append("".join(the_print[i]))
 
@@ -132,7 +132,7 @@ def simplification(letras):
 
 
 
-simplificacion_n_1 = simplification(letras)
+the_print = simplification(letras)
 
 
 # Esta es la segunda fase de simplificacion en la cual se revisa si en la lista hay repetidos y si los hay simplificarlos para luego imprimit el resultado
@@ -155,14 +155,14 @@ def find_repeat(the_list):
     
     return the_list
 
-simplificacion_n_2 = find_repeat(simplificacion_n_1)
+the_print = find_repeat(the_print)
 
 # Y por ultimo esta funcion organiza el resultado de la lista, para luego ser imprimido
 
 def organize():
     times = 1
     the_final_result = ""
-    for number in simplificacion_n_2:
+    for number in the_print:
         if times == 1:
             the_final_result += f"({number})"
         else:
@@ -172,4 +172,5 @@ def organize():
 
     return the_final_result
 
-print(organize())
+the_print = organize()
+print(the_print)
