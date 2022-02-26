@@ -138,9 +138,7 @@ def main():
     output = setup()
     exponente = output[0]
     letras = output[1]
-    posicion = exponente - 1
     cantidad_de_letras = output[2]
-    last_letter = letras[len(letras) - 1]
     the_print = []
     for letter in range(0, exponente):
         the_print.append("a")
