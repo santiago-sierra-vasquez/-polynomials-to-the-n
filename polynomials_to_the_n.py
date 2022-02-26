@@ -116,7 +116,7 @@ def main():
         return the_list
 
 
-    # Y por ultimo esta funcion convierte la lista, en un string mas leible para el usuario
+    # Y por ultimo esta funcion convierte la lista en un string mas leible para el usuario
 
 
     def organize():
